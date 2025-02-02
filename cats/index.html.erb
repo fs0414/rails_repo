@@ -1,0 +1,61 @@
+<h4 class="font-bold text-lg flex items-center">
+  <span class="mr-2">🐱</span>
+  <span>ねこ</span>
+</h4>
+
+<div class="shadow-lg mt-3 bg-white rounded-lg">
+  <div class="bg-gray-100 px-4 py-2 rounded-t-lg border-b border-gray-300">
+    <%= icon_with_text("search", "検索条件") %>
+  </div>
+  <div class="p-4">
+    <%= search_form_for @search do |f| %>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-3">
+        <div>
+          <%= f.label :name_cont, "名前", class: "block text-sm font-normal text-gray-700" %>
+          <%= f.search_field :name_cont, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
+        </div>
+
+        <div>
+          <%= f.label :age_eq, "年齢", class: "block text-sm font-medium text-gray-700" %>
+          <%= f.search_field :age_eq, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
+        </div>
+
+        <div class="flex items-end space-x-2">
+          <%= button_tag(icon_with_text("search", "検索"), class: "bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md") %>
+          <%= link_to "リセット", cats_path, class: "bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-md" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="shadow-lg mt-3 bg-white rounded-lg">
+  <div class="bg-gray-100 px-4 py-2 rounded-t-lg border-b border-gray-300">
+    <%= icon_with_text("table", "一覧") %>
+  </div>
+  <div class="px-6 py-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-y-4 items-center">
+      <div class="text-left">
+        <%= sort_link(@search, :name) %>
+      </div>
+
+      <div class="text-left">
+        <%= sort_link(@search, :age) %>
+      </div>
+
+      <div class="flex justify-end">
+        <%= link_to icon_with_text("plus-circle", "登録"),
+                    new_cat_path,
+                    class: "bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md"
+        %>
+      </div>
+    </div>
+
+    <%= render @cats %>
+
+    <div class="flex justify-end mt-3">
+      <%= paginate @cats %>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,25 @@
+<div class="flex flex-col flex-shrink-0 py-3 px-3 bg-gray-800 text-white h-screen">
+  <!-- ロゴ部分 -->
+  <div class="flex items-center justify-center py-2">
+    <%= link_to "AMS", root_path, class: "text-white text-4xl font-bold no-underline" %>
+  </div>
+  <hr class="border-gray-600 my-4" />
+  <!-- ナビゲーションメニュー -->
+  <ul class="flex flex-col space-y-2">
+    <li>
+      <%= sidebar_link_to(cats_path, "🐱", "ねこ", class: "flex items-center px-4 py-2 rounded hover:bg-gray-700 hover:text-white") %>
+    </li>
+    <li>
+      <%= sidebar_link_to(dogs_path, "🐶", "いぬ", class: "flex items-center px-4 py-2 rounded hover:bg-gray-700 hover:text-white") %>
+    </li>
+    <li>
+      <%= sidebar_link_to(chicks_path, "🐣", "ひよこ", class: "flex items-center px-4 py-2 rounded hover:bg-gray-700 hover:text-white") %>
+    </li>
+    <li>
+      <%= sidebar_link_to(hedgehogs_path, "🦔", "ハリネズミ", class: "flex items-center px-4 py-2 rounded hover:bg-gray-700 hover:text-white") %>
+    </li>
+    <li>
+      <%= sidebar_link_to(owls_path, "🦉", "フクロウ", class: "flex items-center px-4 py-2 rounded hover:bg-gray-700 hover:text-white") %>
+    </li>
+  </ul>
+</div>
