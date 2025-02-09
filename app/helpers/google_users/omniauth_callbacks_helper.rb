@@ -1,0 +1,2 @@
+module GoogleUsers::OmniauthCallbacksHelper
+end
